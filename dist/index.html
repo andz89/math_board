@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fabric Right Click</title>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="customMenu"
+      style="
+        position: absolute;
+        display: none;
+        background: #ffffff;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        cursor: pointer;
+        width: 230px;
+        text-align: center;
+      "
+    >
+      <div
+        id="customMenuHeader"
+        style="user-select: none; cursor: move; font-weight: bold"
+      >
+        ⇅
+      </div>
+      <!-- Number Buttons -->
+      <div
+        style="
+          user-select: none;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2px;
+          cursor: grab;
+        "
+      >
+        <!-- 1 to 9 -->
+        <div
+          style="border: 2px solid #cccc"
+          class="draggable-symbol"
+          draggable="true"
+          data-symbol="1"
+        >
+          <svg width="40" height="35">
+            <text
+              x="20"
+              y="30"
+              text-anchor="middle"
+              font-size="30"
+              fill="#222"
+              font-family="Arial"
+            >
+              1
+            </text>
+          </svg>
+        </div>
+        <!-- 1 to 9 -->
+        <div
+          style="border: 2px solid #cccc"
+          class="draggable-symbol"
+          draggable="true"
+          data-symbol="1"
+        >
+          <svg width="40" height="35">
+            <text
+              x="20"
+              y="30"
+              text-anchor="middle"
+              font-size="30"
+              fill="#222"
+              font-family="Arial"
+            >
+              2
+            </text>
+          </svg>
+        </div>
+        <div
+          style="border: 2px solid #cccc"
+          class="draggable-symbol"
+          draggable="true"
+          data-symbol="1"
+        >
+          <svg width="40" height="35">
+            <text
+              x="20"
+              y="30"
+              text-anchor="middle"
+              font-size="30"
+              fill="#222"
+              font-family="Arial"
+            >
+              3
+            </text>
+          </svg>
+        </div>
+        <div
+          style="border: 2px solid #cccc"
+          class="draggable-symbol"
+          draggable="true"
+          data-symbol="1"
+        >
+          <svg width="40" height="35">
+            <text
+              x="20"
+              y="30"
+              text-anchor="middle"
+              font-size="30"
+              fill="#222"
+              font-family="Arial"
+            >
+              4
+            </text>
+          </svg>
+        </div>
+        <div
+          style="border: 2px solid #cccc"
+          class="draggable-symbol"
+          draggable="true"
+          data-symbol="1"
+        >
+          <svg width="40" height="35">
+            <text
+              x="20"
+              y="30"
+              text-anchor="middle"
+              font-size="30"
+              fill="#222"
+              font-family="Arial"
+            >
+              5
+            </text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <canvas id="c"></canvas>
+
+    <script src="./bundle.js"></script>
+  </body>
+</html>
