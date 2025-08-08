@@ -1,3 +1,4 @@
+import "./style.css";
 import {
   Canvas,
   Rect,
@@ -69,9 +70,11 @@ document.querySelectorAll(".draggable-symbol").forEach((el) => {
     e.preventDefault();
     document.querySelector("#customMenu").style.zIndex = "0";
     const svgEl = el.querySelector("svg");
+
     if (!svgEl) return;
 
     const svgHTML = svgEl.outerHTML;
+
     const { objects, options } = await loadSVGFromString(svgHTML);
     const group = util.groupSVGElements(objects, options);
 
@@ -87,8 +90,15 @@ document.querySelectorAll(".draggable-symbol").forEach((el) => {
       hasControls: false, // Hides resizing/rotation controls
       hoverCursor: "grab",
     });
+    // ✅ Check for ID
+    if (svgEl.id === "long_division_symbol") {
+      // group.scaleToWidth(180);
+    } else if (svgEl.id === "dot") {
+      group.scaleToWidth(10);
+    } else {
+      group.scaleToWidth(40);
+    }
 
-    group.scaleToWidth(40);
     changeStyleControl(group);
     removeControl(group);
 
@@ -129,9 +139,19 @@ canvas.upperCanvasEl.addEventListener("mouseup", () => {
   canvas.requestRenderAll();
 });
 const removeControl = (obj) => {
-  const controlsToRemove = ["mtr", "mt", "mb", "tl", "tr", "br", "bl"];
-  controlsToRemove.forEach((control) => delete obj.controls[control]);
+  obj.setControlsVisibility({
+    mt: false, // middle top
+    mb: false, // middle bottom
+    mtr: false, // rotation
+    ml: false,
+    mr: false,
+    tl: false, // top-left
+    tr: false, // top-right
+    br: false, // bottom-right
+    bl: false, // bottom-left
+  });
 };
+
 const changeStyleControl = (obj) => {
   Object.assign(obj, {
     transparentCorners: false,
@@ -160,7 +180,7 @@ canvas.on("selection:created", (e) => {
       transparentCorners: false,
       cornerStyle: "circle",
     });
-
+    removeControl(activeSelection);
     canvas.requestRenderAll();
   }
 });
@@ -283,4 +303,40 @@ canvas.on("mouse:wheel", function (opt) {
   canvas.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
   opt.e.preventDefault();
   opt.e.stopPropagation();
+});
+let draggedObject = null;
+
+canvas.on("object:moving", (e) => {
+  draggedObject = e.target; // Keep track of the object being moved
+  if (!draggedObject) return;
+
+  const pointer = e.e; // Get raw mouse event
+
+  const clientX = pointer.clientX;
+
+  // Check if mouse pointer is outside the visible browser window
+
+  if (clientX < 30) {
+    console.log("delete");
+  } else {
+    console.log("no delete");
+  }
+});
+
+canvas.on("mouse:up", (e) => {
+  if (!draggedObject) return;
+
+  const pointer = e.e; // Get raw mouse event
+
+  const clientX = pointer.clientX;
+  const clientY = pointer.clientY;
+
+  // Check if mouse pointer is outside the visible browser window
+
+  if (clientX < 30) {
+    canvas.remove(draggedObject);
+    canvas.requestRenderAll();
+  }
+
+  draggedObject = null; // Reset
 });
