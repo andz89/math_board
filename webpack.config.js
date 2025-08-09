@@ -23,7 +23,7 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html", // <-- Your custom HTML file
+      template: "./src/html/index.html", // <-- Your custom HTML file
     }),
   ],
   devServer: {
