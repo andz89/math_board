@@ -1,5 +1,6 @@
 import "./style.css";
-import { Line } from "fabric";
+
+import { Canvas } from "fabric";
 // index.js
 import { createCanvas } from "./components/Canvas.js";
 import {
@@ -11,6 +12,8 @@ import {
   deleteObject,
   multipleSelectionStyle,
   mouseWheel,
+  drawGrid,
+  doubleClickObj,
 } from "./components/Options.js";
 import { CustomMainMenu } from "./components/Elements.js";
 import { DragCreate } from "./components/DragCreate.js";
@@ -29,33 +32,46 @@ addEventListener("DOMContentLoaded", (event) => {
   deleteObject(canvas);
   mouseWheel(canvas);
   drawGrid(canvas, 60);
+  doubleClickObj(canvas);
 });
-function drawGrid(canvas, gridSize = 50) {
-  const width = 8000;
-  const height = 6000;
 
-  const halfWidth = width / 2;
-  const halfHeight = height / 2;
+// import { Line } from "fabric";
 
-  for (let x = -halfWidth; x <= halfWidth; x += gridSize) {
-    canvas.add(
-      new Line([x, -halfHeight, x, halfHeight], {
-        stroke: "#c7e4ffff",
-        selectable: false,
-        evented: false,
-      })
-    );
-  }
+// // Create a pencil brush and set options
+// const brush = new PencilBrush(canvas);
+// brush.width = 3;
+// brush.color = "blue";
 
-  for (let y = -halfHeight; y <= halfHeight; y += gridSize) {
-    canvas.add(
-      new Line([-halfWidth, y, halfWidth, y], {
-        stroke: "#c7e4ffff",
-        selectable: false,
-        evented: false,
-      })
-    );
-  }
+// // Assign it to the canvas
+// canvas.freeDrawingBrush = brush;
 
-  canvas.requestRenderAll();
-}
+// let isDrawing = false;
+// let currentLine = null;
+
+// // create line
+// canvas.on("mouse:down", (opt) => {
+//   isDrawing = true;
+//   const pointer = canvas.getPointer(opt.e);
+
+//   currentLine = new Line([pointer.x, pointer.y, pointer.x, pointer.y], {
+//     stroke: "black",
+//     strokeWidth: 2,
+//     selectable: false,
+//     evented: false,
+//   });
+
+//   canvas.add(currentLine);
+// });
+
+// canvas.on("mouse:move", (opt) => {
+//   if (!isDrawing) return;
+
+//   const pointer = canvas.getPointer(opt.e);
+//   currentLine.set({ x2: pointer.x, y2: pointer.y });
+//   canvas.renderAll();
+// });
+
+// canvas.on("mouse:up", () => {
+//   isDrawing = false;
+//   currentLine = null;
+// });

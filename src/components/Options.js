@@ -1,3 +1,5 @@
+import { Line } from "fabric";
+
 export const removeControl = (obj) => {
   obj.setControlsVisibility({
     mt: false, // middle top
@@ -208,3 +210,50 @@ export const multipleSelectionStyle = (canvas, removeControl) => {
     }
   });
 };
+export function drawGrid(canvas, gridSize = 50) {
+  const width = 8000;
+  const height = 6000;
+
+  const halfWidth = width / 2;
+  const halfHeight = height / 2;
+
+  for (let x = -halfWidth; x <= halfWidth; x += gridSize) {
+    canvas.add(
+      new Line([x, -halfHeight, x, halfHeight], {
+        stroke: "#c7e4ffff",
+        selectable: false,
+        evented: false,
+      })
+    );
+  }
+
+  for (let y = -halfHeight; y <= halfHeight; y += gridSize) {
+    canvas.add(
+      new Line([-halfWidth, y, halfWidth, y], {
+        stroke: "#c7e4ffff",
+        selectable: false,
+        evented: false,
+      })
+    );
+  }
+
+  canvas.requestRenderAll();
+}
+
+// Detect double-click
+export function doubleClickObj(canvas) {
+  canvas.on("mouse:dblclick", (e) => {
+    const target = e.target;
+
+    if ((target && target.type === "text") || target.type === "circle") {
+      // Example: change fill of first path in the SVG
+
+      if (target.fill === "red") {
+        target.set("fill", "#222");
+      } else {
+        target.set("fill", "red");
+      }
+      canvas.requestRenderAll();
+    }
+  });
+}

@@ -17,6 +17,8 @@ export function DragCreate(canvas, removeControl, changeStyleControl) {
     el.addEventListener("mousedown", async (e) => {
       e.preventDefault();
       document.querySelector("#customMenu").style.zIndex = "0";
+      document.querySelector("#customMenu").style.opacity = "0.70";
+
       var svgEl = el.querySelector("svg");
 
       if (svgEl.id === "long_division_symbol_visible") {
@@ -53,7 +55,7 @@ export function DragCreate(canvas, removeControl, changeStyleControl) {
       } else if (svgEl.id === "long_division_symbol") {
         group.scaleToWidth(320);
       } else if (svgEl.id === "rect-line") {
-        group.scaleToWidth(200);
+        group.scaleToWidth(150);
       } else {
         group.scaleToWidth(40);
       }
@@ -93,6 +95,8 @@ export function DragCreate(canvas, removeControl, changeStyleControl) {
   canvas.upperCanvasEl.addEventListener("mouseup", () => {
     if (!isDraggingSVG || !tempObject) return;
     document.querySelector("#customMenu").style.zIndex = "999999";
+    document.querySelector("#customMenu").style.opacity = "1";
+
     // Restore object interactivity
     tempObject.set({
       selectable: true,
