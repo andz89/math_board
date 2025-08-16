@@ -153,11 +153,11 @@ export function deleteObject(canvas) {
     const clientX = pointer.clientX;
     const clientY = pointer.clientY;
     // Check if mouse pointer is outside the visible browser window
-    console.log(clientY);
-    if (clientY < 10) {
+
+    if (clientY < 30) {
       document.querySelector(".delete-item-alert").classList.remove("hidden");
     } else {
-      console.log("no delete");
+      // console.log("no delete");
       document.querySelector(".delete-item-alert").classList.add("hidden");
     }
   });
@@ -173,7 +173,7 @@ export function deleteObject(canvas) {
     // Check if mouse pointer is outside the visible browser window
     console.log(window.innerWidth);
     console.log(clientX);
-    if (clientY < 10) {
+    if (clientY < 30) {
       document.querySelector(".delete-item-alert").classList.add("hidden");
 
       if (draggedObject && draggedObject.type === "activeselection") {

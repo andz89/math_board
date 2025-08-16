@@ -21,10 +21,11 @@
     </div>
     <div
       id="customMenu"
-      class="absolute bg-slate-100 border border-gray-300 p-2 rounded-md shadow-lg z-[9999] cursor-pointer w-[200px] text-center"
+      class="absolute bg-white border border-gray-300 p-2 rounded-md shadow-lg z-[9999] cursor-pointer w-[320px] text-center overflow-y-auto max-h-[550px] overflow-x-hidden"
     >
+      <!-- <button></button> -->
       <div
-        class="text-dark flex justify-end gap-1 select-none font-bold w-[180px]"
+        class="text-dark flex justify-end gap-1 select-none font-bold w-[300px]"
       >
         <svg
           class="cursor-move"
@@ -40,453 +41,544 @@
             fill-rule="evenodd"
           />
         </svg>
-      </div>
-
-      <!-- Number Buttons -->
-      <div
-        class="text-white select-none flex justify-center flex-wrap gap-[2px] cursor-grab mt-3"
-      >
-        <!-- 1 -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="30"
-              text-anchor="middle"
-              font-size="30"
-              fill="#222"
-              font-family="Arial"
-            >
-              1
-            </text>
-          </svg>
-        </div>
-
-        <!-- 2 -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="30"
-              text-anchor="middle"
-              font-size="30"
-              fill="#222"
-              font-family="Arial"
-            >
-              2
-            </text>
-          </svg>
-        </div>
-
-        <!-- 3 -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="30"
-              text-anchor="middle"
-              font-size="30"
-              fill="#222"
-              font-family="Arial"
-            >
-              3
-            </text>
-          </svg>
-        </div>
-
-        <!-- 4 -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="30"
-              text-anchor="middle"
-              font-size="30"
-              fill="#222"
-              font-family="Arial"
-            >
-              4
-            </text>
-          </svg>
-        </div>
-
-        <!-- 5 -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="30"
-              text-anchor="middle"
-              font-size="30"
-              fill="#222"
-              font-family="Arial"
-            >
-              5
-            </text>
-          </svg>
-        </div>
-
-        <!-- 6 -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="30"
-              text-anchor="middle"
-              font-size="30"
-              fill="#222"
-              font-family="Arial"
-            >
-              6
-            </text>
-          </svg>
-        </div>
-
-        <!-- 7 -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="30"
-              text-anchor="middle"
-              font-size="30"
-              fill="#222"
-              font-family="Arial"
-            >
-              7
-            </text>
-          </svg>
-        </div>
-
-        <!-- 8 -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="30"
-              text-anchor="middle"
-              font-size="30"
-              fill="#222"
-              font-family="Arial"
-            >
-              8
-            </text>
-          </svg>
-        </div>
-
-        <!-- 9 -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="30"
-              text-anchor="middle"
-              font-size="30"
-              fill="#222"
-              font-family="Arial"
-            >
-              9
-            </text>
-          </svg>
-        </div>
-
-        <!-- 0 -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="30"
-              text-anchor="middle"
-              font-size="30"
-              fill="#222"
-              font-family="Arial"
-            >
-              0
-            </text>
-          </svg>
-        </div>
-
-        <!-- + -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="30"
-              text-anchor="middle"
-              font-size="30"
-              fill="#222"
-              font-family="Arial"
-            >
-              +
-            </text>
-          </svg>
-        </div>
-
-        <!-- - -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="30"
-              text-anchor="middle"
-              font-size="30"
-              fill="#222"
-              font-family="Arial"
-            >
-              -
-            </text>
-          </svg>
-        </div>
-
-        <!-- x -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="70%"
-              text-anchor="middle"
-              font-size="30"
-              fill="#222"
-              font-family="Arial"
-            >
-              x
-            </text>
-          </svg>
-        </div>
-
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="60%"
-              text-anchor="middle"
-              dominant-baseline="middle"
-              font-size="20"
-              fill="#222"
-              font-family="Arial"
-            >
-              ÷
-            </text>
-          </svg>
-        </div>
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="60%"
-              text-anchor="middle"
-              dominant-baseline="middle"
-              font-size="20"
-              fill="#222"
-              font-family="Arial"
-            >
-              =
-            </text>
-          </svg>
-        </div>
-        <!-- / -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35">
-            <text
-              x="20"
-              y="60%"
-              text-anchor="middle"
-              dominant-baseline="middle"
-              font-size="18"
-              fill="#222"
-              font-family="Arial"
-            >
-              /
-            </text>
-          </svg>
-        </div>
-
-        <!-- Dot -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg width="40" height="35" id="dot">
-            <circle cx="20" cy="17" r="4" fill="black" />
-          </svg>
-        </div>
-
-        <!-- Long Division -->
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <div class="mt-1 w-[40px] h-[30px]">
+        <div class="flex gap-2 items-center">
+          <!-- Arrow Up -->
+          <button
+            id="arrow-up"
+            aria-label="Scroll up"
+            class="p-1 rounded hover:bg-gray-100"
+          >
             <svg
-              id="long_division_symbol_visible"
-              class="ml-1"
+              class="w-6 h-6 text-gray-800"
+              viewBox="0 0 24 24"
+              fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              viewBox="0 0 472 454"
+              aria-hidden="true"
             >
-              <defs>
-                <style>
-                  .cls-1 {
-                    fill: #111c2d;
-                    fill-rule: evenodd;
-                  }
-                </style>
-              </defs>
               <path
-                class="cls-1"
-                d="M409,75H144l1,149s2.327,96.8-37,148-46.6,46.8-54,49,29.181-51.265,40-101S104,46,104,46l305-1V75Z"
+                d="M6 14L12 8L18 14"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               />
             </svg>
-          </div>
-          <div class="draggable-symbol hidden">
-            <svg width="35" height="35" id="long_division_symbol">
-              <line
-                x1="6"
-                y1="14"
-                x2="370"
-                y2="14"
-                stroke="#000"
-                stroke-width="8"
-              />
-              <line
-                class="pb-2"
-                x1="10"
-                y1="13"
-                x2="10"
-                y2="105"
-                stroke="#000"
-                stroke-width="8"
+          </button>
+
+          <!-- Arrow Down -->
+          <button
+            id="arrow-down"
+            aria-label="Scroll down"
+            class="p-1 rounded hover:bg-gray-100 hidden"
+          >
+            <svg
+              class="w-6 h-6 text-gray-800"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M6 10L12 16L18 10"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               />
             </svg>
+          </button>
+        </div>
+      </div>
+      <!-- content -->
+      <div
+        id="menu-content"
+        class="w-[290px] select-none flex justify-center flex-wrap gap-1 cursor-grab mt-3"
+      >
+        <!-- Numbers -->
+        <div
+          class="border border-gray-300 rounded-lg overflow-hidden hover:bg-gray-200 transition"
+        >
+          <div class="">
+            <h1
+              id="numbers-content"
+              class="flex items-center justify-between text-gray-800 font-bold px-3 py-2 cursor-pointer"
+            >
+              Numbers and Symbols
+            </h1>
+            <div id="numbers" class="bg-white"></div>
           </div>
         </div>
 
+        <!-- Shapes -->
         <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
+          class="border border-gray-300 rounded-lg overflow-hidden hover:bg-gray-200 transition"
         >
-          <svg
-            id="parentensis_open"
-            xmlns="http://www.w3.org/2000/svg"
-            version="1.1"
-            viewBox="0 0 100 100"
-            width="40"
-            height="35"
-          >
-            <!-- Generator: Adobe Illustrator 29.6.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 9)  -->
-            <path
-              d="M58.17,16.7c-5.96,8.01-10.3,18.63-10.3,33.42s4.49,25,10.3,33.17h-5.64c-5.15-6.78-10.7-17.24-10.7-33.17.08-16.1,5.56-26.56,10.7-33.42h5.64Z"
-            />
-          </svg>
+          <div>
+            <h1
+              id="shapes-content"
+              class="flex items-center justify-between text-gray-800 font-bold px-3 py-2 cursor-pointer"
+            >
+              Shapes and Polygons
+            </h1>
+            <div id="shapes" class="bg-white"></div>
+          </div>
         </div>
         <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
+          class="w-[100%] border border-gray-300 rounded-lg overflow-hidden hover:bg-gray-200 transition"
         >
-          <svg
-            id="parentensis_close"
-            xmlns="http://www.w3.org/2000/svg"
-            version="1.1"
-            viewBox="0 0 100 100"
-            width="40"
-            height="35"
+          <h1
+            id="rulers-content"
+            class="flex items-center justify-between text-gray-800 font-bold px-3 py-2 cursor-pointer"
           >
-            <!-- Generator: Adobe Illustrator 29.6.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 9)  -->
-            <path
-              d="M41.83,16.7c5.96,8.01,10.3,18.63,10.3,33.42s-4.49,25-10.3,33.17h5.64c5.15-6.78,10.7-17.24,10.7-33.17-.08-16.1-5.56-26.56-10.7-33.42h-5.64Z"
-            />
-          </svg>
-        </div>
-        <div
-          class="border-1 rounded-md border-[#000] draggable-symbol hover:bg-slate-200"
-          draggable="true"
-          data-symbol="1"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            id="rect-line"
-            data-name="Layer 2"
-            viewBox="0 0 89.63 5.4"
-            width="40"
-            height="35"
-          >
-            <g data-name="Layer 2">
-              <rect width="50" height="3.4" x="20" y="50%" />
-            </g>
-          </svg>
+            Rulers
+          </h1>
+          <div id="rulers" class="bg-white">
+            <div class="draggable-symbol p-2">
+              <svg
+                class="measurement"
+                width="250"
+                height="44"
+                viewBox="0,0,740,194"
+              >
+                <!-- background rectangle -->
+
+                <g width="740" height="194">
+                  <rect width="900" height="194" fill="lightblue" />
+                  <!-- text on top -->
+                  <text x="15" y="60" font-size="20" fill="black">cm</text>
+                </g>
+
+                <g
+                  stroke-linecap="butt"
+                  stroke-linejoin="miter"
+                  stroke-miterlimit="10"
+                  stroke-dasharray=""
+                  stroke-dashoffset="0"
+                  font-family="none"
+                  font-weight="none"
+                  font-size="none"
+                  text-anchor="none"
+                  style="mix-blend-mode: normal"
+                >
+                  <path
+                    d="M10,0v144"
+                    id='1 "in. Tick no. 0'
+                    fill="none"
+                    stroke="#000000"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="6"
+                    y="154"
+                    id='1 "in. label no. 0'
+                    fill="#000000"
+                    stroke="none"
+                    stroke-width="1"
+                    font-family="monospace"
+                    font-weight="bold"
+                    font-size="12"
+                    text-anchor="start"
+                  >
+                    0
+                  </text>
+                  <path
+                    d="M82,0v144"
+                    id='1 "in. Tick no. 1'
+                    fill="none"
+                    stroke="#000000"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="78"
+                    y="154"
+                    id='1 "in. label no. 1'
+                    fill="#000000"
+                    stroke="none"
+                    stroke-width="1"
+                    font-family="monospace"
+                    font-weight="bold"
+                    font-size="12"
+                    text-anchor="start"
+                  >
+                    1
+                  </text>
+                  <path
+                    d="M154,0v144"
+                    id='1 "in. Tick no. 2'
+                    fill="none"
+                    stroke="#000000"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="150"
+                    y="154"
+                    id='1 "in. label no. 2'
+                    fill="#000000"
+                    stroke="none"
+                    stroke-width="1"
+                    font-family="monospace"
+                    font-weight="bold"
+                    font-size="12"
+                    text-anchor="start"
+                  >
+                    2
+                  </text>
+                  <path
+                    d="M226,0v144"
+                    id='1 "in. Tick no. 3'
+                    fill="none"
+                    stroke="#000000"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="222"
+                    y="154"
+                    id='1 "in. label no. 3'
+                    fill="#000000"
+                    stroke="none"
+                    stroke-width="1"
+                    font-family="monospace"
+                    font-weight="bold"
+                    font-size="12"
+                    text-anchor="start"
+                  >
+                    3
+                  </text>
+                  <path
+                    d="M298,0v144"
+                    id='1 "in. Tick no. 4'
+                    fill="none"
+                    stroke="#000000"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="294"
+                    y="154"
+                    id='1 "in. label no. 4'
+                    fill="#000000"
+                    stroke="none"
+                    stroke-width="1"
+                    font-family="monospace"
+                    font-weight="bold"
+                    font-size="12"
+                    text-anchor="start"
+                  >
+                    4
+                  </text>
+                  <path
+                    d="M370,0v144"
+                    id='1 "in. Tick no. 5'
+                    fill="none"
+                    stroke="#000000"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="366"
+                    y="154"
+                    id='1 "in. label no. 5'
+                    fill="#000000"
+                    stroke="none"
+                    stroke-width="1"
+                    font-family="monospace"
+                    font-weight="bold"
+                    font-size="12"
+                    text-anchor="start"
+                  >
+                    5
+                  </text>
+                  <path
+                    d="M442,0v144"
+                    id='1 "in. Tick no. 6'
+                    fill="none"
+                    stroke="#000000"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="438"
+                    y="154"
+                    id='1 "in. label no. 6'
+                    fill="#000000"
+                    stroke="none"
+                    stroke-width="1"
+                    font-family="monospace"
+                    font-weight="bold"
+                    font-size="12"
+                    text-anchor="start"
+                  >
+                    6
+                  </text>
+                  <path
+                    d="M514,0v144"
+                    id='1 "in. Tick no. 7'
+                    fill="none"
+                    stroke="#000000"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="510"
+                    y="154"
+                    id='1 "in. label no. 7'
+                    fill="#000000"
+                    stroke="none"
+                    stroke-width="1"
+                    font-family="monospace"
+                    font-weight="bold"
+                    font-size="12"
+                    text-anchor="start"
+                  >
+                    7
+                  </text>
+                  <path
+                    d="M586,0v144"
+                    id='1 "in. Tick no. 8'
+                    fill="none"
+                    stroke="#000000"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="582"
+                    y="154"
+                    id='1 "in. label no. 8'
+                    fill="#000000"
+                    stroke="none"
+                    stroke-width="1"
+                    font-family="monospace"
+                    font-weight="bold"
+                    font-size="12"
+                    text-anchor="start"
+                  >
+                    8
+                  </text>
+                  <path
+                    d="M658,0v144"
+                    id='1 "in. Tick no. 9'
+                    fill="none"
+                    stroke="#000000"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="654"
+                    y="154"
+                    id='1 "in. label no. 9'
+                    fill="#000000"
+                    stroke="none"
+                    stroke-width="1"
+                    font-family="monospace"
+                    font-weight="bold"
+                    font-size="12"
+                    text-anchor="start"
+                  >
+                    9
+                  </text>
+                  <path
+                    d="M730,0v144"
+                    id='1 "in. Tick no. 10'
+                    fill="none"
+                    stroke="#000000"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="726"
+                    y="154"
+                    id='1 "in. label no. 10'
+                    fill="#000000"
+                    stroke="none"
+                    stroke-width="1"
+                    font-family="monospace"
+                    font-weight="bold"
+                    font-size="12"
+                    text-anchor="start"
+                  >
+                    10
+                  </text>
+                  <path
+                    d="M802,0v144"
+                    id='1 "in. Tick no. 11'
+                    fill="none"
+                    stroke="#000000"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="798"
+                    y="154"
+                    id='1 "in. label no. 11'
+                    fill="#000000"
+                    stroke="none"
+                    stroke-width="1"
+                    font-family="monospace"
+                    font-weight="bold"
+                    font-size="12"
+                    text-anchor="start"
+                  >
+                    11
+                  </text>
+                  <path
+                    d="M874,0v144"
+                    id='1 "in. Tick no. 12'
+                    fill="none"
+                    stroke="#000000"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="878"
+                    y="154"
+                    id='1 "in. label no. 12'
+                    fill="#000000"
+                    stroke="none"
+                    stroke-width="1"
+                    font-family="monospace"
+                    font-weight="bold"
+                    font-size="12"
+                    text-anchor="end"
+                  >
+                    12
+                  </text>
+                </g>
+                <g
+                  id='1/2 "in. Tick Group'
+                  fill="none"
+                  fill-rule="nonzero"
+                  stroke="#000000"
+                  stroke-width="1"
+                  stroke-linecap="butt"
+                  stroke-linejoin="miter"
+                  stroke-miterlimit="10"
+                  stroke-dasharray=""
+                  stroke-dashoffset="0"
+                  font-family="none"
+                  font-weight="none"
+                  font-size="none"
+                  text-anchor="none"
+                  style="mix-blend-mode: normal"
+                >
+                  <path d="M46,0v72" id='1/2 "in. Tick no. 1' />
+                  <path d="M118,0v72" id='1/2 "in. Tick no. 3' />
+                  <path d="M190,0v72" id='1/2 "in. Tick no. 5' />
+                  <path d="M262,0v72" id='1/2 "in. Tick no. 7' />
+                  <path d="M334,0v72" id='1/2 "in. Tick no. 9' />
+                  <path d="M406,0v72" id='1/2 "in. Tick no. 11' />
+                  <path d="M478,0v72" id='1/2 "in. Tick no. 13' />
+                  <path d="M550,0v72" id='1/2 "in. Tick no. 15' />
+                  <path d="M622,0v72" id='1/2 "in. Tick no. 17' />
+                  <path d="M694,0v72" id='1/2 "in. Tick no. 19' />
+                  <path d="M766,0v72" id='1/2 "in. Tick no. 21' />
+                  <path d="M838,0v72" id='1/2 "in. Tick no. 23' />
+                </g>
+                <g
+                  id='1/4 "in. Tick Group'
+                  fill="none"
+                  fill-rule="nonzero"
+                  stroke="#000000"
+                  stroke-width="1"
+                  stroke-linecap="butt"
+                  stroke-linejoin="miter"
+                  stroke-miterlimit="10"
+                  stroke-dasharray=""
+                  stroke-dashoffset="0"
+                  font-family="none"
+                  font-weight="none"
+                  font-size="none"
+                  text-anchor="none"
+                  style="mix-blend-mode: normal"
+                >
+                  <path d="M28,0v36" id='1/4 "in. Tick no. 1' />
+                  <path d="M64,0v36" id='1/4 "in. Tick no. 3' />
+                  <path d="M100,0v36" id='1/4 "in. Tick no. 5' />
+                  <path d="M136,0v36" id='1/4 "in. Tick no. 7' />
+                  <path d="M172,0v36" id='1/4 "in. Tick no. 9' />
+                  <path d="M208,0v36" id='1/4 "in. Tick no. 11' />
+                  <path d="M244,0v36" id='1/4 "in. Tick no. 13' />
+                  <path d="M280,0v36" id='1/4 "in. Tick no. 15' />
+                  <path d="M316,0v36" id='1/4 "in. Tick no. 17' />
+                  <path d="M352,0v36" id='1/4 "in. Tick no. 19' />
+                  <path d="M388,0v36" id='1/4 "in. Tick no. 21' />
+                  <path d="M424,0v36" id='1/4 "in. Tick no. 23' />
+                  <path d="M460,0v36" id='1/4 "in. Tick no. 25' />
+                  <path d="M496,0v36" id='1/4 "in. Tick no. 27' />
+                  <path d="M532,0v36" id='1/4 "in. Tick no. 29' />
+                  <path d="M568,0v36" id='1/4 "in. Tick no. 31' />
+                  <path d="M604,0v36" id='1/4 "in. Tick no. 33' />
+                  <path d="M640,0v36" id='1/4 "in. Tick no. 35' />
+                  <path d="M676,0v36" id='1/4 "in. Tick no. 37' />
+                  <path d="M712,0v36" id='1/4 "in. Tick no. 39' />
+                  <path d="M748,0v36" id='1/4 "in. Tick no. 41' />
+                  <path d="M784,0v36" id='1/4 "in. Tick no. 43' />
+                  <path d="M820,0v36" id='1/4 "in. Tick no. 45' />
+                  <path d="M856,0v36" id='1/4 "in. Tick no. 47' />
+                </g>
+                <g
+                  id='1/8 "in. Tick Group'
+                  fill="none"
+                  fill-rule="nonzero"
+                  stroke="#000000"
+                  stroke-width="1"
+                  stroke-linecap="butt"
+                  stroke-linejoin="miter"
+                  stroke-miterlimit="10"
+                  stroke-dasharray=""
+                  stroke-dashoffset="0"
+                  font-family="none"
+                  font-weight="none"
+                  font-size="none"
+                  text-anchor="none"
+                  style="mix-blend-mode: normal"
+                >
+                  <path d="M19,0v18" id='1/8 "in. Tick no. 1' />
+                  <path d="M37,0v18" id='1/8 "in. Tick no. 3' />
+                  <path d="M55,0v18" id='1/8 "in. Tick no. 5' />
+                  <path d="M73,0v18" id='1/8 "in. Tick no. 7' />
+                  <path d="M91,0v18" id='1/8 "in. Tick no. 9' />
+                  <path d="M109,0v18" id='1/8 "in. Tick no. 11' />
+                  <path d="M127,0v18" id='1/8 "in. Tick no. 13' />
+                  <path d="M145,0v18" id='1/8 "in. Tick no. 15' />
+                  <path d="M163,0v18" id='1/8 "in. Tick no. 17' />
+                  <path d="M181,0v18" id='1/8 "in. Tick no. 19' />
+                  <path d="M199,0v18" id='1/8 "in. Tick no. 21' />
+                  <path d="M217,0v18" id='1/8 "in. Tick no. 23' />
+                  <path d="M235,0v18" id='1/8 "in. Tick no. 25' />
+                  <path d="M253,0v18" id='1/8 "in. Tick no. 27' />
+                  <path d="M271,0v18" id='1/8 "in. Tick no. 29' />
+                  <path d="M289,0v18" id='1/8 "in. Tick no. 31' />
+                  <path d="M307,0v18" id='1/8 "in. Tick no. 33' />
+                  <path d="M325,0v18" id='1/8 "in. Tick no. 35' />
+                  <path d="M343,0v18" id='1/8 "in. Tick no. 37' />
+                  <path d="M361,0v18" id='1/8 "in. Tick no. 39' />
+                  <path d="M379,0v18" id='1/8 "in. Tick no. 41' />
+                  <path d="M397,0v18" id='1/8 "in. Tick no. 43' />
+                  <path d="M415,0v18" id='1/8 "in. Tick no. 45' />
+                  <path d="M433,0v18" id='1/8 "in. Tick no. 47' />
+                  <path d="M451,0v18" id='1/8 "in. Tick no. 49' />
+                  <path d="M469,0v18" id='1/8 "in. Tick no. 51' />
+                  <path d="M487,0v18" id='1/8 "in. Tick no. 53' />
+                  <path d="M505,0v18" id='1/8 "in. Tick no. 55' />
+                  <path d="M523,0v18" id='1/8 "in. Tick no. 57' />
+                  <path d="M541,0v18" id='1/8 "in. Tick no. 59' />
+                  <path d="M559,0v18" id='1/8 "in. Tick no. 61' />
+                  <path d="M577,0v18" id='1/8 "in. Tick no. 63' />
+                  <path d="M595,0v18" id='1/8 "in. Tick no. 65' />
+                  <path d="M613,0v18" id='1/8 "in. Tick no. 67' />
+                  <path d="M631,0v18" id='1/8 "in. Tick no. 69' />
+                  <path d="M649,0v18" id='1/8 "in. Tick no. 71' />
+                  <path d="M667,0v18" id='1/8 "in. Tick no. 73' />
+                  <path d="M685,0v18" id='1/8 "in. Tick no. 75' />
+                  <path d="M703,0v18" id='1/8 "in. Tick no. 77' />
+                  <path d="M721,0v18" id='1/8 "in. Tick no. 79' />
+                  <path d="M739,0v18" id='1/8 "in. Tick no. 81' />
+                  <path d="M757,0v18" id='1/8 "in. Tick no. 83' />
+                  <path d="M775,0v18" id='1/8 "in. Tick no. 85' />
+                  <path d="M793,0v18" id='1/8 "in. Tick no. 87' />
+                  <path d="M811,0v18" id='1/8 "in. Tick no. 89' />
+                  <path d="M829,0v18" id='1/8 "in. Tick no. 91' />
+                  <path d="M847,0v18" id='1/8 "in. Tick no. 93' />
+                  <path d="M865,0v18" id='1/8 "in. Tick no. 95' />
+                </g>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <canvas style="background-color: transparent" id="canvas"></canvas>
-    <canvas id="canva"></canvas>
+    <canvas id="canvas" width="800" height="900"></canvas>
 
     <script src="./bundle.js"></script>
   </body>

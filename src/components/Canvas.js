@@ -3,8 +3,6 @@ import { Canvas } from "fabric";
 export function createCanvas() {
   const canvasEl = document.getElementById("canvas");
 
-  canvasEl.width = window.innerWidth;
-  canvasEl.height = window.innerHeight;
   let canvas;
 
   canvas = new Canvas(canvasEl, {
@@ -12,7 +10,10 @@ export function createCanvas() {
     perPixelTargetFind: true, // click detection checks transparency
     // isDrawingMode: true, // turn on free drawing
   });
-
+  canvas.setDimensions({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
   canvas.defaultCursor = "grab";
   canvas.hoverCursor = "grab";
   canvas.moveCursor = "grabbing";

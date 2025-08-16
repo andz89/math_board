@@ -7,6 +7,8 @@ import {
   loadSVGFromString,
   util,
   Color,
+  Control,
+  controlsUtils,
 } from "fabric";
 export function DragCreate(canvas, removeControl, changeStyleControl) {
   let isDraggingSVG = false;
@@ -19,14 +21,16 @@ export function DragCreate(canvas, removeControl, changeStyleControl) {
       document.querySelector("#customMenu").style.zIndex = "0";
       document.querySelector("#customMenu").style.opacity = "0.70";
 
-      var svgEl = el.querySelector("svg");
+      var svgEl = el.querySelector("svg")
+        ? el.querySelector("svg")
+        : el.querySelector("g");
 
       if (svgEl.id === "long_division_symbol_visible") {
         svgEl = document.querySelector("#long_division_symbol");
       }
       if (!svgEl) return;
 
-      const svgHTML = svgEl.outerHTML;
+      const svgHTML = svgEl.parentElement.outerHTML;
 
       const { objects, options } = await loadSVGFromString(svgHTML);
       const group = util.groupSVGElements(objects, options);
@@ -38,41 +42,109 @@ export function DragCreate(canvas, removeControl, changeStyleControl) {
         originX: "center",
         originY: "center",
         selectable: false,
-        perPixelTargetFind: true,
+
         evented: false,
         hasBorders: false, // Hides border
-        hasControls: false, // Hides resizing/rotation controls
+
+        // hasControls: false, // Hides resizing/rotation controls
         hoverCursor: "grab",
       });
 
-      canvas.requestRenderAll(); // or canvas.renderAll();
-
-      // ✅ Check for ID
-      if (svgEl.id === "parentensis_close" || svgEl.id === "parentensis_open") {
-        group.scaleToWidth(18);
-      } else if (svgEl.id === "dot") {
-        group.scaleToWidth(10);
-      } else if (svgEl.id === "long_division_symbol") {
-        group.scaleToWidth(320);
-      } else if (svgEl.id === "rect-line") {
-        group.scaleToWidth(150);
-      } else {
-        group.scaleToWidth(40);
-      }
-
       changeStyleControl(group);
       removeControl(group);
-
-      canvas.add(group);
-
-      if (svgEl.id === "rect-line") {
+      // ✅ Check for ID
+      if (svgEl.id === "parenOpen" || svgEl.id === "parenClose") {
+        group.scaleToWidth(28);
+      } else if (svgEl.id === "dot") {
+        group.scaleToWidth(20);
+      } else if (svgEl.id === "long_division_symbol") {
+        group.scaleToWidth(390);
+      } else if (svgEl.classList.contains("measurement")) {
         group.hasControls = true;
         group.cornerColor = "teal";
+
+        group.setControlsVisibility({
+          mtr: true, // middle-top
+          tl: false, // top-left
+          tr: true, // top-right
+          br: false, // bottom-right
+          bl: false, // bottom-left
+
+          mt: false, // middle top
+        });
+        group.stroke = "black";
+        group.strokeWidth = 2;
+
+        // Override mtr control with custom render
+        group.controls.mtr = new Control({
+          x: 0,
+          y: -0.5,
+          offsetY: -40,
+          actionHandler: controlsUtils.rotationWithSnapping,
+          cursorStyleHandler: controlsUtils.rotationStyleHandler,
+          withConnection: true,
+          actionName: "rotate",
+          render: function (ctx, left, top) {
+            ctx.save();
+            ctx.fillStyle = "red"; // 🎯 only mtr control gets this color
+            ctx.beginPath();
+            ctx.arc(left, top, 12, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+          },
+        });
+        group.scaleToWidth(490);
+      } else if (svgEl.id === "rectLine") {
+        group.scaleToWidth(170);
+        group.hasControls = true;
+        group.cornerColor = "teal";
+
         group.setControlsVisibility({
           ml: true,
           mr: true,
         });
+      } else if (svgEl.classList.contains("shapes")) {
+        group.hasControls = true;
+        group.cornerColor = "teal";
+
+        group.setControlsVisibility({
+          mtr: true, // middle-top
+          tl: false, // top-left
+          tr: true, // top-right
+          br: false, // bottom-right
+          bl: false, // bottom-left
+
+          mt: false, // middle top
+        });
+        group.stroke = "black";
+        group.strokeWidth = 2;
+
+        // Override mtr control with custom render
+        group.controls.mtr = new Control({
+          x: 0,
+          y: -0.5,
+          offsetY: -40,
+          actionHandler: controlsUtils.rotationWithSnapping,
+          cursorStyleHandler: controlsUtils.rotationStyleHandler,
+          withConnection: true,
+          actionName: "rotate",
+          render: function (ctx, left, top) {
+            ctx.save();
+            ctx.fillStyle = "red"; // 🎯 only mtr control gets this color
+            ctx.beginPath();
+            ctx.arc(left, top, 12, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+          },
+        });
+
+        group.scaleToWidth(190);
+      } else {
+        group.scaleToWidth(60);
       }
+      // group.cornerColor = "transparent";
+
+      canvas.add(group);
       canvas.requestRenderAll();
 
       isDraggingSVG = true;
@@ -106,7 +178,7 @@ export function DragCreate(canvas, removeControl, changeStyleControl) {
     isDraggingSVG = false;
     // tempObject = null;
     canvas.setActiveObject(tempObject);
-
+    // tempObject.setCoords();
     canvas.requestRenderAll();
   });
 }
