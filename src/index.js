@@ -138,6 +138,99 @@ addEventListener("DOMContentLoaded", (event) => {
     arrowUp.classList.remove("hidden");
     menuContent.classList.remove("hidden");
   });
+
+  function generateRuler(svgId) {
+    const svg = document.getElementById(svgId);
+
+    // Helper for SVG element creation
+    const createSvgEl = (tag, attrs) => {
+      const el = document.createElementNS("http://www.w3.org/2000/svg", tag);
+      for (let k in attrs) el.setAttribute(k, attrs[k]);
+      return el;
+    };
+
+    // Background rectangle
+    svg.appendChild(
+      createSvgEl("rect", {
+        width: 900,
+        height: 194,
+        fill: "rgba(173,216,230,0.5)",
+      })
+    );
+
+    // Text "cm"
+    svg.appendChild(
+      createSvgEl("text", {
+        x: 15,
+        y: 60,
+        "font-size": 20,
+        fill: "black",
+      })
+    ).textContent = "cm";
+
+    // Major ticks (1 inch)
+    for (let i = 0; i <= 12; i++) {
+      const x = 10 + i * 72;
+      svg.appendChild(
+        createSvgEl("path", {
+          d: `M${x},0v144`,
+          stroke: "black",
+          "stroke-width": 1,
+        })
+      );
+
+      svg.appendChild(
+        createSvgEl("text", {
+          x: x - 4,
+          y: 154,
+          "font-size": 12,
+          "font-family": "monospace",
+          "font-weight": "bold",
+          fill: "black",
+          "text-anchor": i === 12 ? "end" : "start",
+        })
+      ).textContent = i;
+    }
+
+    // Half-inch ticks
+    for (let i = 1; i <= 23; i += 2) {
+      const x = 46 + (i - 1) * 36;
+      svg.appendChild(
+        createSvgEl("path", {
+          d: `M${x},0v72`,
+          stroke: "black",
+          "stroke-width": 1,
+        })
+      );
+    }
+
+    // Quarter-inch ticks
+    for (let i = 1; i <= 47; i += 2) {
+      const x = 28 + (i - 1) * 18;
+      svg.appendChild(
+        createSvgEl("path", {
+          d: `M${x},0v36`,
+          stroke: "black",
+          "stroke-width": 1,
+        })
+      );
+    }
+
+    // Eighth-inch ticks
+    for (let i = 1; i <= 95; i += 2) {
+      const x = 19 + (i - 1) * 9;
+      svg.appendChild(
+        createSvgEl("path", {
+          d: `M${x},0v18`,
+          stroke: "black",
+          "stroke-width": 1,
+        })
+      );
+    }
+  }
+
+  // Call function
+  generateRuler("ruler");
 });
 
 // import { Line } from "fabric";

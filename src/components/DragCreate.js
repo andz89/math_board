@@ -10,6 +10,13 @@ import {
   Control,
   controlsUtils,
 } from "fabric";
+import {
+  shapesConfig,
+  textConfig,
+  rectConfig,
+  measurementConfig,
+  divisionSymbol,
+} from "./Config.js";
 export function DragCreate(canvas, removeControl, changeStyleControl) {
   let isDraggingSVG = false;
   let tempObject = null;
@@ -25,9 +32,9 @@ export function DragCreate(canvas, removeControl, changeStyleControl) {
         ? el.querySelector("svg")
         : el.querySelector("g");
 
-      if (svgEl.id === "long_division_symbol_visible") {
-        svgEl = document.querySelector("#long_division_symbol");
-      }
+      // if (svgEl.id === "long_division_symbol_visible") {
+      //   svgEl = document.querySelector("#long_division_symbol");
+      // }
       if (!svgEl) return;
 
       const svgHTML = svgEl.parentElement.outerHTML;
@@ -49,7 +56,6 @@ export function DragCreate(canvas, removeControl, changeStyleControl) {
         // hasControls: false, // Hides resizing/rotation controls
         hoverCursor: "grab",
       });
-
       changeStyleControl(group);
       removeControl(group);
       // ✅ Check for ID
@@ -58,91 +64,16 @@ export function DragCreate(canvas, removeControl, changeStyleControl) {
       } else if (svgEl.id === "dot") {
         group.scaleToWidth(20);
       } else if (svgEl.id === "long_division_symbol") {
-        group.scaleToWidth(390);
+        divisionSymbol(group);
       } else if (svgEl.classList.contains("measurement")) {
-        group.hasControls = true;
-        group.cornerColor = "teal";
-
-        group.setControlsVisibility({
-          mtr: true, // middle-top
-          tl: false, // top-left
-          tr: true, // top-right
-          br: false, // bottom-right
-          bl: false, // bottom-left
-
-          mt: false, // middle top
-        });
-        group.stroke = "black";
-        group.strokeWidth = 2;
-
-        // Override mtr control with custom render
-        group.controls.mtr = new Control({
-          x: 0,
-          y: -0.5,
-          offsetY: -40,
-          actionHandler: controlsUtils.rotationWithSnapping,
-          cursorStyleHandler: controlsUtils.rotationStyleHandler,
-          withConnection: true,
-          actionName: "rotate",
-          render: function (ctx, left, top) {
-            ctx.save();
-            ctx.fillStyle = "red"; // 🎯 only mtr control gets this color
-            ctx.beginPath();
-            ctx.arc(left, top, 12, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.restore();
-          },
-        });
-        group.scaleToWidth(490);
+        measurementConfig(group);
       } else if (svgEl.id === "rectLine") {
-        group.scaleToWidth(170);
-        group.hasControls = true;
-        group.cornerColor = "teal";
-
-        group.setControlsVisibility({
-          ml: true,
-          mr: true,
-        });
+        rectConfig(group);
       } else if (svgEl.classList.contains("shapes")) {
-        group.hasControls = true;
-        group.cornerColor = "teal";
-
-        group.setControlsVisibility({
-          mtr: true, // middle-top
-          tl: false, // top-left
-          tr: true, // top-right
-          br: false, // bottom-right
-          bl: false, // bottom-left
-
-          mt: false, // middle top
-        });
-        group.stroke = "black";
-        group.strokeWidth = 2;
-
-        // Override mtr control with custom render
-        group.controls.mtr = new Control({
-          x: 0,
-          y: -0.5,
-          offsetY: -40,
-          actionHandler: controlsUtils.rotationWithSnapping,
-          cursorStyleHandler: controlsUtils.rotationStyleHandler,
-          withConnection: true,
-          actionName: "rotate",
-          render: function (ctx, left, top) {
-            ctx.save();
-            ctx.fillStyle = "red"; // 🎯 only mtr control gets this color
-            ctx.beginPath();
-            ctx.arc(left, top, 12, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.restore();
-          },
-        });
-
-        group.scaleToWidth(190);
+        shapesConfig(group);
       } else {
-        group.scaleToWidth(60);
+        textConfig(group);
       }
-      // group.cornerColor = "transparent";
 
       canvas.add(group);
       canvas.requestRenderAll();

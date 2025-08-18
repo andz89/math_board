@@ -23,6 +23,10 @@ export function mainMenuContent() {
     { type: "text", value: "8" },
     { type: "text", value: "9" },
     { type: "text", value: "0" },
+    { type: "text", value: "Base" },
+    { type: "text", value: "Height" },
+    { type: "text", value: "cm" },
+    { type: "text", value: "in" },
     { type: "text", value: "+" },
     { type: "text", value: "-" },
     { type: "text", value: "x" },
@@ -31,7 +35,6 @@ export function mainMenuContent() {
     { type: "text", value: "/", fontSize: 38 },
     { type: "dot" },
     { type: "longDivision" },
-
     { type: "parenOpen" },
     { type: "parenClose" },
     { type: "rectLine" },
@@ -68,20 +71,18 @@ export function mainMenuContent() {
       btn.innerHTML = `<svg width="40" height="35" id="dot"><circle cx="20" cy="17" r="4" fill="black" /></svg>`;
     } else if (sym.type === "longDivision") {
       btn.innerHTML = `
-      <div class="mt-1 w-[40px] h-[30px]">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 472 454" id="long_division_symbol_visible" >
-          <path fill="#111c2d" d="M409,75H144l1,149s2.327,96.8-37,148-46.6,46.8-54,49 29.181-51.265,40-101S104,46,104,46l305-1V75Z"/>
-        </svg>
-      </div>
-      <div class="draggable-symbol hidden">
-            <svg width="35" height="35" id="long_division_symbol">
+  
+      <div class="draggable-symbol pr-2 ">
+            <svg  width="30"
+                height="34"
+              id="long_division_symbol">
               <line
-                x1="6"
+                x1="9"
                 y1="14"
-                x2="370"
+                x2="340"
                 y2="14"
                 stroke="#000"
-                stroke-width="8"
+                stroke-width="4"
               />
               <line
                 class="pb-2"
@@ -90,7 +91,7 @@ export function mainMenuContent() {
                 x2="10"
                 y2="105"
                 stroke="#000"
-                stroke-width="8"
+                stroke-width="4"
               />
             </svg>
           </div>

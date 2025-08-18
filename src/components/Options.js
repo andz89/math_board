@@ -1,4 +1,4 @@
-import { Line } from "fabric";
+import { Line, Control, controlsUtils } from "fabric";
 
 export const removeControl = (obj) => {
   obj.setControlsVisibility({
@@ -205,7 +205,42 @@ export const multipleSelectionStyle = (canvas, removeControl) => {
         transparentCorners: false,
         cornerStyle: "circle",
       });
+
       removeControl(activeSelection);
+      activeSelection.hasControls = true;
+      activeSelection.cornerColor = "teal";
+      activeSelection.opacity = 0.9; // Slightly transparent
+      activeSelection.setControlsVisibility({
+        mtr: true, // middle-top
+
+        tr: true, // top-right
+      });
+      // Override mtr control with custom render
+      activeSelection.controls.mtr = new Control({
+        x: 0,
+        y: -0.9, // 🎯 0 means middle (vertically centered)
+        offsetY: 0,
+        actionHandler: controlsUtils.rotationWithSnapping,
+        cursorStyleHandler: controlsUtils.rotationStyleHandler,
+        withConnection: true,
+        actionName: "rotate",
+        render: function (ctx, left, top) {
+          ctx.save();
+          ctx.fillStyle = "gray";
+          ctx.beginPath();
+          ctx.arc(left, top, 13, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Draw reset symbol (↺)
+          ctx.fillStyle = "white";
+          ctx.font = "19px sans-serif";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText("↻", left, top + 1);
+          ctx.restore();
+        },
+      });
+
       canvas.requestRenderAll();
     }
   });
