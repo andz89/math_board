@@ -31,5 +31,5 @@
     "fabric": "^6.7.1",
     "util-deprecate": "^1.0.2"
   },
-  "homepage": "https://<username>.github.io/<repo-name>"
+  "homepage": "https://<username>.github.io/math_board/"
 }
