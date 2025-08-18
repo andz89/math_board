@@ -12,10 +12,8 @@ import {
 } from "fabric";
 
 export function divisionSymbol(group) {
-  group.stroke = "black";
-  group.strokeWidth = 155;
-
-  group.scaleToWidth(390);
+  (group.perPixelTargetFind = true), // click detection checks transparency
+    group.scaleToWidth(290);
 }
 export function measurementConfig(group) {
   group.hasControls = true;
@@ -161,6 +159,17 @@ export function textConfig(group) {
     tr: true, // top-right
   });
   group.scaleToWidth(60);
+  group.scaleToHeight(60);
+}
+export function unitsConfig(group) {
+  group.hasControls = true;
+  group.cornerColor = "teal";
+  // group.opacity = 0.9; // Slightly transparent
+  group.setControlsVisibility({
+    tr: true, // top-right
+  });
+  group.scaleToWidth(40);
+  group.scaleToHeight(40);
 }
 export function rectConfig(group) {
   group.scaleToWidth(170);

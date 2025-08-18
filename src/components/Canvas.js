@@ -7,7 +7,7 @@ export function createCanvas() {
 
   canvas = new Canvas(canvasEl, {
     preserveObjectStacking: true,
-    perPixelTargetFind: true, // click detection checks transparency
+    // perPixelTargetFind: true, // click detection checks transparency
     // isDrawingMode: true, // turn on free drawing
   });
   canvas.setDimensions({

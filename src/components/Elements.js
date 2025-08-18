@@ -10,7 +10,7 @@ export function CustomMainMenu(canvas, menu) {
   };
 }
 
-export function mainMenuContent() {
+export function numbersAndSymbols() {
   // Symbol list: we can store text, SVG special cases, or HTML
   const symbols = [
     { type: "text", value: "1" },
@@ -23,10 +23,7 @@ export function mainMenuContent() {
     { type: "text", value: "8" },
     { type: "text", value: "9" },
     { type: "text", value: "0" },
-    { type: "text", value: "Base" },
-    { type: "text", value: "Height" },
-    { type: "text", value: "cm" },
-    { type: "text", value: "in" },
+
     { type: "text", value: "+" },
     { type: "text", value: "-" },
     { type: "text", value: "x" },
@@ -68,7 +65,7 @@ export function mainMenuContent() {
       </svg>
     `;
     } else if (sym.type === "dot") {
-      btn.innerHTML = `<svg width="40" height="35" id="dot"><circle cx="20" cy="17" r="4" fill="black" /></svg>`;
+      btn.innerHTML = `<svg width="40" height="35" id="dot"><circle cx="20" cy="21" r="4" fill="black" /></svg>`;
     } else if (sym.type === "longDivision") {
       btn.innerHTML = `
   
@@ -130,6 +127,49 @@ export function mainMenuContent() {
 
   numbers_div.appendChild(btnContainer);
 }
+export function units() {
+  // Symbol list: we can store text, SVG special cases, or HTML
+  const symbols = [
+    { type: "text", value: "Base" },
+    { type: "text", value: "Height" },
+    { type: "text", value: "cm" },
+    { type: "text", value: "in" },
+  ];
+
+  // Create container
+
+  var units_div = document.querySelector("#units");
+
+  // Buttons container
+  const btnContainer = document.createElement("div");
+  btnContainer.className =
+    "text-white select-none flex justify-center flex-wrap gap-[3px] cursor-grab mt-2 pb-2";
+
+  // Loop through symbols and create buttons
+  symbols.forEach((sym) => {
+    const btn = document.createElement("div");
+    btn.className =
+      "border-1 rounded-md border-[#ccc] draggable-symbol hover:bg-slate-200 shadow-sm";
+    btn.setAttribute("draggable", "true");
+
+    if (sym.type === "text") {
+      btn.innerHTML = `
+      <svg width="50" height="45" id="units">
+        <text x="24" y="30" text-anchor="middle" font-size="${
+          sym.fontSize || 14
+        }" fill="#222" font-family="Arial">
+          ${sym.value}
+        </text>
+      </svg>
+    `;
+    }
+
+    btnContainer.appendChild(btn);
+  });
+
+  units_div.appendChild(btnContainer);
+}
+
 export function createShapesElement() {
   // ---- Group 1 (top row) ----
   const group1 = [

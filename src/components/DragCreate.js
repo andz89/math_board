@@ -16,6 +16,7 @@ import {
   rectConfig,
   measurementConfig,
   divisionSymbol,
+  unitsConfig,
 } from "./Config.js";
 export function DragCreate(canvas, removeControl, changeStyleControl) {
   let isDraggingSVG = false;
@@ -60,11 +61,14 @@ export function DragCreate(canvas, removeControl, changeStyleControl) {
       removeControl(group);
       // ✅ Check for ID
       if (svgEl.id === "parenOpen" || svgEl.id === "parenClose") {
-        group.scaleToWidth(28);
+        group.scaleToWidth(48);
+        group.scaleToHeight(48);
       } else if (svgEl.id === "dot") {
-        group.scaleToWidth(20);
+        group.scaleToWidth(10);
       } else if (svgEl.id === "long_division_symbol") {
         divisionSymbol(group);
+      } else if (svgEl.id === "units") {
+        unitsConfig(group);
       } else if (svgEl.classList.contains("measurement")) {
         measurementConfig(group);
       } else if (svgEl.id === "rectLine") {

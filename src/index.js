@@ -17,7 +17,8 @@ import {
 } from "./components/Options.js";
 import {
   CustomMainMenu,
-  mainMenuContent,
+  numbersAndSymbols,
+  units,
   createShapesElement,
 } from "./components/Elements.js";
 import { DragCreate } from "./components/DragCreate.js";
@@ -28,7 +29,8 @@ addEventListener("DOMContentLoaded", (event) => {
   const header = document.getElementById("customMenuHeader");
   CustomMainMenu(canvas, menu);
   dragElement(menu, header, canvas);
-  mainMenuContent();
+  numbersAndSymbols();
+  units();
   createShapesElement();
   DragCreate(canvas, removeControl, changeStyleControl);
   multipleSelectionStyle(canvas, removeControl);
@@ -45,6 +47,7 @@ addEventListener("DOMContentLoaded", (event) => {
     const items = [
       { header: "#numbers-content", panel: "#numbers" },
       { header: "#shapes-content", panel: "#shapes" },
+      { header: "#units-content", panel: "#units" },
       { header: "#rulers-content", panel: "#rulers" },
     ];
 
