@@ -64,6 +64,7 @@ export function DragCreate(canvas, removeControl, changeStyleControl) {
         group.scaleToWidth(48);
         group.scaleToHeight(48);
       } else if (svgEl.id === "dot") {
+        //
         group.scaleToWidth(10);
       } else if (svgEl.id === "long_division_symbol") {
         divisionSymbol(group);
